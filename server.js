@@ -355,9 +355,17 @@ connectDB();
 
 // ✅ CORS - Frontend URL allow பண்ணு
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: [
+    "http://localhost:5173",
+    "https://ambimood-frontend1.vercel.app"
+  ],
+  methods: ["GET","POST","PUT","DELETE"],
   credentials: true
 }));
+// app.use(cors({
+//   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+//   credentials: true
+// }));
 
 app.use(express.json());
 
